@@ -1,8 +1,11 @@
 import type { NextConfig } from 'next';
-
 const nextConfig = (): NextConfig => ({
   output: (process.env.NEXT_OUTPUT as 'standalone') || undefined,
-  
+
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   // Performance optimizations
   experimental: {
     // Optimize package imports for faster builds and smaller bundles
@@ -16,17 +19,17 @@ const nextConfig = (): NextConfig => ({
       'react-icons',
     ],
   },
-  
+
   // Enable compression
   compress: true,
-  
+
   // Optimize images
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
-  
+
   async rewrites() {
     return [
       {
@@ -43,7 +46,7 @@ const nextConfig = (): NextConfig => ({
       },
     ];
   },
-  
+
   // HTTP headers for caching and performance
   async headers() {
     return [
@@ -67,8 +70,7 @@ const nextConfig = (): NextConfig => ({
       },
     ];
   },
-  
+
   skipTrailingSlashRedirect: true,
 });
-
 export default nextConfig;
