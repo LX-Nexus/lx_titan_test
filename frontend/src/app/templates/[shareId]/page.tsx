@@ -36,7 +36,8 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import ColorThief from 'colorthief';
+// @ts-ignore
+const ColorThief = require('colorthief');
 import { AgentAvatar } from '@/components/thread/content/agent-avatar';
 import { KortixLogo } from '@/components/sidebar/kortix-logo';
 
@@ -728,35 +729,9 @@ export default function TemplateSharePage() {
                 </CardContent>
               </Card>
             )}
-            {/* 
-            <Card className="bg-muted/30 border-muted/50">
-              <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-medium mb-4">Ready to get started?</h3>
-                <p className="text-muted-foreground mb-6">
-                  Install this agent template and customize it for your specific needs
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Button 
-                    size="lg"
-                    onClick={handleInstall}
-                  >
-                    <Download className="h-4 w-4" />
-                    Install Now
-                  </Button>
-                  <Button 
-                    size="lg"
-                    variant="outline"
-                    onClick={() => router.push('/agents?tab=my-agents')}
-                  >
-                    Browse More Agents
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-            */}
           </div>
         </div>
       </div>
     </div>
   );
-} 
+}
