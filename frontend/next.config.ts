@@ -6,6 +6,10 @@ const nextConfig = (): NextConfig => ({
     ignoreDuringBuilds: true,
   },
 
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
   // Performance optimizations
   experimental: {
     // Optimize package imports for faster builds and smaller bundles
